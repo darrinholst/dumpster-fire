@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "$0")
+
+ENVIRONMENT=staging \
+GITHUB_TOKEN=${GITHUB_TOKEN?:is required} \
+HEROKU_TOKEN=${HEROKU_TOKEN?:is required} \
+RELEASE_TAG=${RELEASE_TAG:-latest} \
+SLACK_URL=${SLACK_URL?:is required} \
+$SCRIPT_DIR/index

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] compiling server sources:${RESET}\n" "$(date +%T)"
+webpack --config server/webpack.config.js --entry ./index.js --output-filename index.js

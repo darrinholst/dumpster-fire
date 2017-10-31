@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+yarn run --silent test:unit && \
+yarn run --silent test:integration

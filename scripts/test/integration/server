@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] running server integration tests:${RESET}\n" "$(date +%T)"
+export NODE_ENV=test
+export NODE_CONFIG_DIR="./server/config"
+#export DEBUG="oyodf:sql"
+
+RESET_DB=$1
+BUILD_UNIVERSAL=$2
+
+function reset_db {
+  [ "$RESET_DB" == "--no-reset" ] || yarn run db:test:reset
+}
+
+reset_db && \
+mocha-webpack \
+  -R dot \
+  --require source-map-support/register \
+  --include server/test/integration/helpers/spec-helper \
+  --webpack-config server/webpack.config.js \
+  "server/test/integration/**/*.spec.*"
+

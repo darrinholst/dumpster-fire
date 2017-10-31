@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] compiling client sources for development:${RESET}\n" "$(date +%T)"
+export NODE_ENV=development
+webpack --config client/webpack.config.js

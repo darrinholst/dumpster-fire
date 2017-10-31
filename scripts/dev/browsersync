@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+browser-sync start \
+  --port 3000 \
+  --ui-port 3001 \
+  --proxy "localhost:9000" \
+  --files "server/public/app.css" \
+  --files "server/public/vendor.css" \
+  --files "server/public/app.js" \
+  --files "server/public/vendor.js"

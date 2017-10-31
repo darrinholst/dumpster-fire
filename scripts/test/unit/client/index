@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] running client unit tests:${RESET}" "$(date +%T)"
+export NODE_ENV=test
+
+mocha-webpack \
+  --colors \
+  --reporter dot \
+  --require client/test/unit/helpers/mocha-shim.js \
+  --webpack-config client/test/webpack.config.js \
+  "client/test/unit/**/*.spec.ts"
+

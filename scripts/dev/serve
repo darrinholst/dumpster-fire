@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export NODE_ENV="development"
+export NODE_CONFIG_DIR="./server/config"
+
+mkdir -p server/public && \
+yarn run --silent db:dev:start && \
+nodemon --inspect --watch server/dist server/dist/index.js

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] running e2e tests:${RESET}\n" "$(date +%T)"
+
+export NODE_ENV=test
+
+RESET_DB=$1
+
+function reset_db {
+  [ "$RESET_DB" == "--no-reset" ] || yarn run db:test:reset
+}
+
+function run_em {
+  if [ -z ${CI+x} ]; then protractor features/e2e/protractor.conf.js; else echo "Protractor on CI is coming soon..."; fi
+}
+
+#reset_db && webdriver-manager update --gecko false --versions.standalone=3.2.0 && run_em

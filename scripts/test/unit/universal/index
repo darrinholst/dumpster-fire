@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] running universal unit tests:${RESET}" "$(date +%T)"
+export NODE_ENV=test
+
+mocha-webpack \
+  -R dot \
+  --require source-map-support/register \
+  --include universal/test/unit/helpers/spec-helper \
+  --webpack-config universal/webpack.config.js \
+  "universal/test/unit/**/*.spec.*"
+

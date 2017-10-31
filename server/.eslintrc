@@ -1,0 +1,11 @@
+{
+  "globals": {
+    "__config": true,
+    "__src": true,
+    "__universal": true
+  },
+  "rules": {
+    "new-cap": 0
+  }
+}
+

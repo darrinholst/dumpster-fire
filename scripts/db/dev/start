@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export NODE_ENV="development"
+export DATABASE_URL="postgres://admin:password@localhost:5473/oyodf-development"
+yarn run --silent db:start

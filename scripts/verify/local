@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+
+printf "\n${BLUE}[%s] installing dependencies:${RESET}\n" "$(date +%T)" && \
+yarn install && \
+yarn run -s clean && \
+yarn run -s lint && \
+yarn run -s test:unit && \
+yarn run -s test:integration && \
+yarn run -s build:prod && \
+yarn run -s test:e2e && \
+printf "\n${BLUE}[%s] 🎉  👏  😻  ${RESET}\n\n" "$(date +%T)"

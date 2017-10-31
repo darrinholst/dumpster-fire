@@ -1,0 +1,17 @@
+#!/bin/bash
+
+IMAGE="oyodf-ci:${1:-latest}"
+
+docker build --force-rm --tag="${IMAGE}" container/ci && \
+docker run \
+  --rm \
+  --volume $(pwd):/app/user \
+  --workdir /app/user \
+  --env ENVIRONMENT=${ENVIRONMENT} \
+  --env GITHUB_TOKEN=${GITHUB_TOKEN} \
+  --env HEROKU_TOKEN=${HEROKU_TOKEN} \
+  --env RELEASE_TAG=${RELEASE_TAG} \
+  --env SLACK_URL=${SLACK_URL} \
+  --env VERBOSE=${VERBOSE} \
+  ${IMAGE} \
+  /deploy.sh

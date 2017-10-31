@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>Dumpster 🔥 </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="text-spinners.css" rel="stylesheet" type="text/css" media="all">
+    <link href="vendor.css" rel="stylesheet" type="text/css" media="all">
+    <link href="app.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      .not-loaded {
+        padding: 30px;
+      }
+    </style>
+    <script>
+    {{#if token}}localStorage.setItem('token', '{{token}}');{{/if}}
+    </script>
+  </head>
+  <body>
+    <app-root>
+      <div class="not-loaded"><span class="loading dots"></span><span> loading</span></div>
+    </app-root>
+    <script src="app.js"></script>
+  </body>
+</html>
+

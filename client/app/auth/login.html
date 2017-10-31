@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="error" *ngIf="failure">
+    Unable to login
+  </div>
+
+  <mat-form-field>
+    <input required matInput placeholder="User" [(ngModel)]="username" name="username">
+  </mat-form-field>
+  <mat-form-field>
+    <input required type="password" matInput placeholder="Password" [(ngModel)]="password" name="password">
+  </mat-form-field>
+  <div class="actions">
+    <button mat-raised-button class="mat-primary" type="submit" [disabled]="!form.valid || submitted">
+      <i [ngClass]="{'fa': true, 'fa-circle-o-notch': submitted, 'fa-spin': submitted}"></i> Login
+    </button>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+app-header {
+  display: block;
+
+  a.logo {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 16px 16px 8px;
+  }
+
+  .mat-icon-button {
+    margin-right: 4px;
+  }
+
+  img {
+    height: 42px;
+  }
+}

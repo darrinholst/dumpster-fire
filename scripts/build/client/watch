@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export NODE_ENV=development
+webpack --config client/webpack.config.js --watch

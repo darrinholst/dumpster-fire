@@ -1,0 +1,11 @@
+{
+  "most congiguration is done through DATABASE_URL": true,
+
+  "development": {},
+  "test": {},
+  "staging": {},
+  "production": {
+    "driver": "pg",
+    "native": "true"
+  }
+}

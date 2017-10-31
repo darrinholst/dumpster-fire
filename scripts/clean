@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+rm -rf server/public build && \
+mkdir -p build/test-results

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] linting sass:${RESET}\n" "$(date +%T)"
+
+stylelint "*/**/*.scss" --syntax scss

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IMAGE="oyodf-ci:${1:-latest}"
+
+docker build --force-rm --tag="${IMAGE}" container/ci && \
+docker run \
+  --rm \
+  --volume $(pwd):/app/user \
+  --workdir /app/user \
+  --env GITHUB_TOKEN=${GITHUB_TOKEN?:is required} \
+  --env VERBOSE=${VERBOSE} \
+  ${IMAGE} \
+  /release.sh

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nf --port 9000 start web=1,client=1,browsersync=1,server=1

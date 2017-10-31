@@ -1,0 +1,12 @@
+{
+  "globals": {
+    "__fixtures": true,
+    "afterEach": true,
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "it": true,
+    "sinon": true
+  }
+}
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+yarn run -s build:server && \
+yarn run -s build:client:dev

@@ -1,0 +1,10 @@
+{
+  "extends": "stylelint-config-standard",
+
+  "sample": "https://github.com/stylelint/stylelint/blob/master/docs/user-guide/example-config.md",
+
+  "rules": {
+    "selector-type-no-unknown": null,
+    "no-missing-end-of-source-newline": null
+  }
+}

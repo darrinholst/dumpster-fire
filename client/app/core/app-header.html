@@ -1,0 +1,8 @@
+<mat-toolbar fxLayoutAlign="end center">
+  <a class="logo" fxFlex routerLink="/"><img src="logo.png"></a>
+  <button *ngIf="isLoggedIn()" mat-icon-button [matMenuTriggerFor]="menu"><i class="fa fa-bars"></i></button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/logout" title="logout"><i class="fa fa-sign-out"></i> Logout</button>
+</mat-menu>

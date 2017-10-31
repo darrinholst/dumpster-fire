@@ -1,0 +1,9 @@
+build
+node_modules
+server/public
+server/dist
+.env
+.DS_Store
+.idea
+server/tmp
+.tmp

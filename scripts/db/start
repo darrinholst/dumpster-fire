@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+DROP="$1"
+DB_LOG=build/db.log
+ENV=${NODE_ENV?:}
+PORT=$(if [ -z ${CI+x} ]; then echo 5473; else echo 5474; fi)
+CONTAINER_NAME=$(if [ -z ${CI+x} ]; then echo "oyodf-pg"; else echo "oyodf-ci-pg"; fi)
+
+mkdir -p build
+
+function create_pg_data {
+  docker run -v /var/lib/postgresql -v /run/postgresql --name=${CONTAINER_NAME}-data busybox true &> ${DB_LOG}
+}
+
+function has_postgres_image {
+  docker images postgres | grep -c 9\.6\.1 > ${DB_LOG}
+}
+
+function pull_postgres_image {
+  echo "pulling the postgres image, this will take a couple minutes..."
+  docker pull postgres:9.6.1
+}
+
+function create_pg {
+  create_pg_data
+  has_postgres_image || pull_postgres_image
+
+  docker run \
+    -d \
+    -p ${PORT}:5432 \
+    -e POSTGRES_USER="admin" \
+    -e POSTGRES_PASSWORD="password" \
+    --volumes-from ${CONTAINER_NAME}-data \
+    --name=${CONTAINER_NAME} \
+    postgres:9.6.1 \
+    2> ${DB_LOG}
+}
+
+function start_pg {
+  docker start ${CONTAINER_NAME} > ${DB_LOG}
+}
+
+function docker_dropdb {
+  docker exec ${CONTAINER_NAME} bash -c "until psql -U admin -l &> /dev/null; do sleep 1; done; dropdb -U admin oyodf-${ENV}"
+}
+
+function drop_db_if_requested {
+  if [ "$DROP" == "--drop" ]; then
+    if [ "$ENV" == "test" ] || [ "$ENV" == "development" ]; then
+      docker_dropdb &> ${DB_LOG}
+    else
+      echo "You're going to have to drop the db in that environment on your own partner"
+      exit 1
+    fi
+  fi
+}
+
+function docker_createdb {
+  docker exec ${CONTAINER_NAME} bash -c "until psql -U admin -l &> /dev/null; do sleep 1; done; createdb -U admin oyodf-${ENV}"
+}
+
+function create_db {
+  docker_createdb &> ${DB_LOG}
+}
+
+function migrate_db {
+  yarn run --silent db:migrate
+}
+
+echo "" > ${DB_LOG}
+create_pg
+start_pg
+drop_db_if_requested
+create_db
+migrate_db

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+RESET=$'\e[0m'
+BLUE=$'\e[1;34m'
+printf "\n${BLUE}[%s] running server unit tests:${RESET}" "$(date +%T)"
+export NODE_ENV=test
+export NODE_CONFIG_DIR="./server/config"
+
+mocha-webpack \
+  -R dot \
+  --require source-map-support/register \
+  --include server/test/unit/helpers/spec-helper \
+  --webpack-config server/webpack.config.js \
+  "server/test/unit/**/*.spec.*"
