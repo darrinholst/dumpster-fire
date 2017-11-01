@@ -1,0 +1,15 @@
+{
+  "globals": {
+    "protractor": true,
+    "browser": true,
+    "expect": true,
+    "element": true,
+    "by": true
+  },
+
+  "rules": {
+    "new-cap": 0
+  }
+}
+
+

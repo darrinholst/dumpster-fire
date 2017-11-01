@@ -5,6 +5,7 @@ BLUE=$'\e[1;34m'
 printf "\n${BLUE}[%s] running e2e tests:${RESET}\n" "$(date +%T)"
 
 export NODE_ENV=test
+export NODE_CONFIG_DIR="./server/config"
 
 RESET_DB=$1
 
@@ -16,4 +17,9 @@ function run_em {
   if [ -z ${CI+x} ]; then protractor features/e2e/protractor.conf.js; else echo "Protractor on CI is coming soon..."; fi
 }
 
-#reset_db && webdriver-manager update --gecko false --versions.standalone=3.2.0 && run_em
+mkdir -p build/test-results
+
+webpack --display errors-only --config server/webpack.config.js --entry ../features/e2e/e2e-server.js --output-filename e2e-server.js && \
+reset_db && \
+webdriver-manager update --gecko false --versions.standalone=3.2.0 && \
+run_em
