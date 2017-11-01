@@ -9,6 +9,7 @@ mocha-webpack \
   --colors \
   --reporter dot \
   --require client/test/unit/helpers/mocha-shim.js \
+  --include client/test/unit/helpers/spec-helper \
   --webpack-config client/test/webpack.config.js \
   "client/test/unit/**/*.spec.ts"
 
