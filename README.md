@@ -1,13 +1,13 @@
-# OYODF
+# Dumpster Fire
 
-Pronouced Oh Yo Duff. Own Your Own Dumpster Fire.
+A starter project to build and deploy Angular apps with a Node.js backend to Heroku.
 
 ## Initial Setup
 1. Install [docker](https://www.docker.com/products/docker).
 1. Install [node](https://nodejs.org/en/).
 1. Install [yarn](https://yarnpkg.com). `npm install -g yarn`
-1. `git clone git@github.com:darrinholst/own-your-own-dumpster-fire.git`
-1. `cd own-your-own-dumpster-fire`
+1. `git clone git@github.com:darrinholst/dumpster-fire.git`
+1. `cd dumpster-fire`
 1. `yarn`
 
 ## Development

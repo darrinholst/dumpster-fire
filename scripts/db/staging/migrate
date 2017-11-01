@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-heroku run "cd /app/user && yarn run --silent db:migrate" --app=oyodf-staging
+heroku run "cd /app/user && yarn run --silent db:migrate" --app=dumpster-fire-staging

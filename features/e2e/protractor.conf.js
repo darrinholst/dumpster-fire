@@ -39,4 +39,3 @@ function startWebServer() {
   require(path.resolve(__dirname, '../../server/dist/e2e-server'));
   return global.E2E_SERVER;
 }
-

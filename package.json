@@ -1,8 +1,8 @@
 {
-  "name": "oyodf",
+  "name": "dumpster-fire",
   "version": "0.0.1",
   "private": true,
-  "repository": "https://github.com/darrinholst/own-your-own-dumpster-fire",
+  "repository": "https://github.com/darrinholst/dumpster-fire",
   "engines": {
     "node": "^8.8.1"
   },
@@ -15,7 +15,8 @@
     "bracketSpacing": false
   },
   "scripts": {
-    "start": "NODE_CONFIG_DIR=\"./server/config\" node -r source-map-support/register server/dist/index.js",
+    "start":
+      "NODE_CONFIG_DIR=\"./server/config\" node -r source-map-support/register server/dist/index.js",
     "lint": "SCRIPTY_PARALLEL=true scripty",
     "clean": "scripty",
     "dev": "scripty",
@@ -28,7 +29,8 @@
     "build:client:watch": "scripty",
     "build:server": "scripty",
     "build:server:watch": "scripty",
-    "db:migrate": "db-migrate up --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json && db-migrate up:${NODE_ENV} --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json",
+    "db:migrate":
+      "db-migrate up --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json && db-migrate up:${NODE_ENV} --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json",
     "db:start": "scripty",
     "db:dev:migrate": "scripty",
     "db:dev:reset": "scripty",
@@ -40,8 +42,10 @@
     "deploy": "scripty",
     "deploy:staging": "scripty",
     "deploy:prod": "scripty",
-    "logs:staging": "heroku logs -t -n 1000 -s app -d web -a oyodf-staging",
-    "logs:prod": "heroku logs -t -n 1000 -s app -d web -a oyodf",
+    "logs:staging":
+      "heroku logs -t -n 1000 -s app -d web -a dumpster-fire-staging",
+    "logs:prod":
+      "heroku logs -t -n 1000 -s app -d web -a dumpster-fire-production",
     "test": "scripty",
     "test:integration": "scripty",
     "test:integration:server": "scripty",

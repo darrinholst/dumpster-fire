@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE="oyodf-ci"
+IMAGE="dumpster-fire-ci"
 TAG=${1:-latest}
 
 docker build \

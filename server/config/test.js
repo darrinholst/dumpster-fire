@@ -11,7 +11,7 @@ module.exports = {
 
   db: {
     url: process.env.CI
-      ? 'postgres://admin:password@172.17.0.1:5474/oyodf-test'
-      : 'postgres://admin:password@localhost:5473/oyodf-test'
+      ? 'postgres://admin:password@172.17.0.1:5474/dumpster-fire-test'
+      : 'postgres://admin:password@localhost:5473/dumpster-fire-test'
   }
 };

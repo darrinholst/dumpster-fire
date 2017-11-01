@@ -1,7 +1,7 @@
 let fs = require('fs');
 let childProcess = require('child_process');
 
-let GITHUB_BASE_URL = 'https://api.github.com/repos/darrinholst/excel2app';
+let GITHUB_BASE_URL = 'https://api.github.com/repos/darrinholst/dumpster-fire';
 let HEROKU_BASE_URL = 'https://api.heroku.com/apps';
 
 module.exports = {

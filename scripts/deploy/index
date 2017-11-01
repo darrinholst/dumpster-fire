@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE="oyodf-ci:${1:-latest}"
+IMAGE="dumpster-fire-ci:${1:-latest}"
 
 docker build --force-rm --tag="${IMAGE}" container/ci && \
 docker run \

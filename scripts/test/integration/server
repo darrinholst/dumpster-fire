@@ -5,7 +5,7 @@ BLUE=$'\e[1;34m'
 printf "\n${BLUE}[%s] running server integration tests:${RESET}\n" "$(date +%T)"
 export NODE_ENV=test
 export NODE_CONFIG_DIR="./server/config"
-#export DEBUG="oyodf:sql"
+#export DEBUG="df:sql"
 
 RESET_DB=$1
 BUILD_UNIVERSAL=$2

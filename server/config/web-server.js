@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const config = require('config');
 const loggingConfig = config.get('logging');
 debug.enable(`${process.env.DEBUG},${loggingConfig.debug}`);
-const log = debug('oyodf');
+const log = debug('df');
 
 const routes = require('./routes');
 

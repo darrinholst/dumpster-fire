@@ -2,7 +2,7 @@
 
 PARENT_DIR="$(cd .. && pwd)"
 CURRENT_DIR="$(pwd)"
-TEMP_DIR="/tmp/oyodf-build-$(date +%Y%m%d_%H%M%S)"
+TEMP_DIR="/tmp/dumpster-fire-build-$(date +%Y%m%d_%H%M%S)"
 GIT_SHA="$(git rev-parse HEAD)"
 
 rm -rf ${TEMP_DIR} && mkdir -p ${TEMP_DIR}

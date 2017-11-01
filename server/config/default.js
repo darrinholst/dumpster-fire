@@ -1,7 +1,7 @@
 module.exports = {
   logging: {
     expressLogging: 'dev',
-    debug: 'oyodf,oyodf:*'
+    debug: 'df,df:*'
   },
   jwt: {
     browserSecret: 'ENVIRONMENT_VARIABLE',

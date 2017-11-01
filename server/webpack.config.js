@@ -20,15 +20,20 @@ module.exports = {
   },
 
   module: {
-    rules: [{
-      test: /\.ts$/,
-      exclude: /node_modules/,
-      loaders: [
-        {
-          loader: 'awesome-typescript-loader',
-          options: {silent: true, configFileName: path.resolve(__dirname, 'tsconfig.json')}
-        }
-      ]
-    }
-  ]}
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        loaders: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              silent: true,
+              configFileName: path.resolve(__dirname, 'tsconfig.json')
+            }
+          }
+        ]
+      }
+    ]
+  }
 };

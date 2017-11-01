@@ -4,6 +4,6 @@ module.exports = {
   },
 
   db: {
-    url: 'postgres://admin:password@localhost:5473/oyodf-development'
+    url: 'postgres://admin:password@localhost:5473/dumpster-fire-development'
   }
 };

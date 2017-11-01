@@ -43,9 +43,7 @@ module.exports = {
 
   plugins: removeEmpty([
     new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new CopyWebpackPlugin([
-      {from: 'public/**/*', to: '../server'}
-    ]),
+    new CopyWebpackPlugin([{from: 'public/**/*', to: '../server'}]),
     ifProduction(
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: true,

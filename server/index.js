@@ -1,4 +1,4 @@
-let log = require('debug')('oyodf');
+let log = require('debug')('df');
 let app = require('./config/web-server')();
 
 app.set('port', process.env.PORT || 5000);

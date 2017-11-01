@@ -4,15 +4,15 @@ let path = require('path');
 let {ARTIFACT_NAME, log, error, notify, env, github, heroku, run} = require('./ci-helpers');
 
 let APPLICATIONS = {
-  staging: 'oyodf-staging',
-  production: 'oyodf'
+  staging: 'dumpster-fire-staging',
+  production: 'dumpster-fire-production'
 };
 
 (function main() {
   let application = getApplicationToDeployTo();
   let releaseTag = getReleaseTagToDeploy();
   let release = getReleaseToDeploy(releaseTag);
-  let releaseLink = `<https://github.com/darrinholst/excel2app/compare/${previousReleaseTag(releaseTag)}...${releaseTag}|${releaseTag}>`;
+  let releaseLink = `<https://github.com/darrinholst/dumpster-fire/compare/${previousReleaseTag(releaseTag)}...${releaseTag}|${releaseTag}>`;
   let appLink = `<https://${application}.herokuapp.com|${env('ENVIRONMENT')}>`;
 
   log(`deploying ${releaseTag} to ${application}`);
