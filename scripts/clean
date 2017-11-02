@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf server/public build && \
-mkdir -p build/test-results
+rm -rf server/public && mkdir -p server/public && \
+rm -rf server/dist && mkdir -p server/dist && \
+rm -rf build && mkdir -p build/test-results

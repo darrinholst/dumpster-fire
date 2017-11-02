@@ -4,7 +4,7 @@ DROP="$1"
 DB_LOG=build/db.log
 ENV=${NODE_ENV?:}
 PORT=$(if [ -z ${CI+x} ]; then echo 5473; else echo 5474; fi)
-CONTAINER_NAME=$(if [ -z ${CI+x} ]; then echo "dumpster-fire-pg"; else echo "dumpster-fire-ci-pg"; fi)
+CONTAINER_NAME=$(if [ -z ${CI+x} ]; then echo "heroku-nodejs-build-demo-pg"; else echo "heroku-nodejs-build-demo-ci-pg"; fi)
 
 mkdir -p build
 
@@ -41,7 +41,7 @@ function start_pg {
 }
 
 function docker_dropdb {
-  docker exec ${CONTAINER_NAME} bash -c "until psql -U admin -l &> /dev/null; do sleep 1; done; dropdb -U admin dumpster-fire-${ENV}"
+  docker exec ${CONTAINER_NAME} bash -c "until psql -U admin -l &> /dev/null; do sleep 1; done; dropdb -U admin heroku-nodejs-build-demo-${ENV}"
 }
 
 function drop_db_if_requested {
@@ -56,7 +56,7 @@ function drop_db_if_requested {
 }
 
 function docker_createdb {
-  docker exec ${CONTAINER_NAME} bash -c "until psql -U admin -l &> /dev/null; do sleep 1; done; createdb -U admin dumpster-fire-${ENV}"
+  docker exec ${CONTAINER_NAME} bash -c "until psql -U admin -l &> /dev/null; do sleep 1; done; createdb -U admin heroku-nodejs-build-demo-${ENV}"
 }
 
 function create_db {

@@ -1,8 +1,8 @@
 {
-  "name": "dumpster-fire",
+  "name": "heroku-nodejs-build-demo",
   "version": "0.0.1",
   "private": true,
-  "repository": "https://github.com/darrinholst/dumpster-fire",
+  "repository": "https://github.com/darrinholst/heroku-nodejs-build-demo",
   "engines": {
     "node": "^8.8.1"
   },
@@ -29,8 +29,7 @@
     "build:client:watch": "scripty",
     "build:server": "scripty",
     "build:server:watch": "scripty",
-    "db:migrate":
-      "db-migrate up --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json && db-migrate up:${NODE_ENV} --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json",
+    "db:migrate": "db-migrate up --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json && db-migrate up:${NODE_ENV} --env ${NODE_ENV:?} --migrations-dir server/config/database/migrations --config server/config/database/database.json",
     "db:start": "scripty",
     "db:dev:migrate": "scripty",
     "db:dev:reset": "scripty",
@@ -38,14 +37,8 @@
     "db:prod:migrate": "scripty",
     "db:staging:migrate": "scripty",
     "db:test:reset": "scripty",
-    "release": "scripty",
-    "deploy": "scripty",
-    "deploy:staging": "scripty",
-    "deploy:prod": "scripty",
-    "logs:staging":
-      "heroku logs -t -n 1000 -s app -d web -a dumpster-fire-staging",
-    "logs:prod":
-      "heroku logs -t -n 1000 -s app -d web -a dumpster-fire-production",
+    "logs:staging": "heroku logs -t -n 1000 -s app -d web -a hnbd-staging",
+    "logs:prod": "heroku logs -t -n 1000 -s app -d web -a hnbd-production",
     "test": "scripty",
     "test:integration": "scripty",
     "test:integration:server": "scripty",
@@ -57,8 +50,10 @@
     "test:unit:universal": "scripty",
     "test:e2e": "scripty",
     "verify": "scripty",
-    "verify:local": "scripty",
-    "verify:docker": "scripty"
+    "package": "node_modules/heroku-nodejs-build/scripts/package",
+    "release": "node_modules/heroku-nodejs-build/scripts/release",
+    "deploy:staging": "ENVIRONMENT=staging node_modules/heroku-nodejs-build/scripts/deploy",
+    "deploy:prod": "ENVIRONMENT=production node_modules/heroku-nodejs-build/scripts/deploy"
   },
   "dependencies": {
     "async": "^2.5.0",

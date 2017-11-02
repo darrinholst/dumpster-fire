@@ -1,34 +1,32 @@
-# Dumpster Fire
+# heroku-nodejs-build-demo
 
-A starter project to build and deploy Angular apps with a Node.js backend to Heroku.
+A demo project to show how [heroku-nodejs-build](https://github.com/darrinholst/heroku-nodejs-build.git) works.
 
 ## Initial Setup
 1. Install [docker](https://www.docker.com/products/docker).
 1. Install [node](https://nodejs.org/en/).
-1. Install [yarn](https://yarnpkg.com). `npm install -g yarn`
-1. `git clone git@github.com:darrinholst/dumpster-fire.git`
-1. `cd dumpster-fire`
-1. `yarn`
-
-## Development
+1. Install [yarn](https://yarnpkg.com).
+1. `git clone https://github.com/darrinholst/heroku-nodejs-build-demo.git`
+1. `cd heroku-nodejs-build-demo`
+1. `yarn install`
 
 #### Verify
-* `yarn run verify`
 
-#### Running locally
-* `yarn run dev`
+    yarn run verify
 
-## Releasing
+#### Run the web server locally
 
-[GitHub Releases](https://github.com/darrinholst/excellent/releases) are used for release management. To release set the following environment variables and `yarn run release`
+    yarn run dev
 
-    GITHUB_TOKEN=[https://github.com/settings/tokens]
+#### Build a new release
 
-## Deploying
+    GITHUB_REPO=darrinholst/heroku-nodejs-build-demo \
+    GITHUB_TOKEN=[https://github.com/settings/tokens] \
+    yarn run package && yarn run release
 
-Deploying is performed by [deploy.sh](container/ci/deploy.sh). It is passed `ENVIRONMENT` and `RELEASE_TAG` environment variables to determine where and what to deploy.
+## Deploy a release
 
-To deploy the latest release set the following environment variables and `yarn run deploy:(staging|prod)`. To deploy a specific release set `RELEASE_TAG=[https://github.com/darrinholst/excellent/releases]`. Try [autoenv](https://github.com/kennethreitz/autoenv) to declare these in an `.env` file.
-
-    GITHUB_TOKEN=[https://github.com/settings/tokens]
-    HEROKU_TOKEN=[heroku auth:token]
+    RELEASE_TAG=[https://github.com/darrinholst/heroku-nodejs-build-demo/releases] \
+    GITHUB_TOKEN=[https://github.com/settings/tokens] \
+    HEROKU_TOKEN=[heroku auth:token] \
+    yarn run deploy:(staging|prod)

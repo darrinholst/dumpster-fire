@@ -1,5 +1,5 @@
 let log = require('debug')('df');
-let app = require('./config/web-server')();
+let app = require('./src/web-server')();
 
 app.set('port', process.env.PORT || 5000);
 
