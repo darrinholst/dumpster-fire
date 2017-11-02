@@ -27,6 +27,8 @@ A demo project to show how [heroku-nodejs-build](https://github.com/darrinholst/
 ## Deploy a release
 
     RELEASE_TAG=[https://github.com/darrinholst/heroku-nodejs-build-demo/releases] \
+    GITHUB_REPO=darrinholst/heroku-nodejs-build-demo \
     GITHUB_TOKEN=[https://github.com/settings/tokens] \
+    HEROKU_APP=your-heroku-app \
     HEROKU_TOKEN=[heroku auth:token] \
-    yarn run deploy:(staging|prod)
+    yarn run deploy

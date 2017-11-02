@@ -52,8 +52,7 @@
     "verify": "scripty",
     "package": "node_modules/heroku-nodejs-build/scripts/package",
     "release": "node_modules/heroku-nodejs-build/scripts/release",
-    "deploy:staging": "ENVIRONMENT=staging node_modules/heroku-nodejs-build/scripts/deploy",
-    "deploy:prod": "ENVIRONMENT=production node_modules/heroku-nodejs-build/scripts/deploy"
+    "deploy": "node_modules/heroku-nodejs-build/scripts/deploy"
   },
   "dependencies": {
     "async": "^2.5.0",

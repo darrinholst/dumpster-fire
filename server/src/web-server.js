@@ -20,7 +20,7 @@ module.exports = function start() {
 
 function configureApp(app) {
   app.set('view engine', 'hbs');
-  app.set('views', 'server/src/views');
+  app.set('views', 'server/views');
   app.use(compression());
 
   if (loggingConfig.expressLogging) {
