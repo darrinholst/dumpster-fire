@@ -24,7 +24,7 @@ A demo project to show how [heroku-nodejs-build](https://github.com/darrinholst/
     GITHUB_TOKEN=[https://github.com/settings/tokens] \
     yarn run package && yarn run release
 
-## Deploy a release
+### Deploy a release
 
     RELEASE_TAG=[https://github.com/darrinholst/heroku-nodejs-build-demo/releases] \
     GITHUB_REPO=darrinholst/heroku-nodejs-build-demo \
