@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-yarn run --silent test:unit:universal && \
 yarn run --silent test:unit:server && \
 yarn run --silent test:unit:client
